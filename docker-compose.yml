@@ -1,0 +1,59 @@
+version: '3.8'
+services:
+  go-cve-dictionary:
+    image: vuls/go-cve-dictionary:v0.8.4
+    container_name: go-cve-dictionary
+    volumes:
+      - $PWD:/go-cve-dictionary
+      - $PWD/go-cve-dictionary-log:/var/log/go-cve-dictionary
+  goval-dictionary:
+    image: vuls/goval-dictionary:v0.9.3
+    container_name: goval-dictionary
+    volumes:
+      - $PWD:/goval-dictionary
+      - $PWD/goval-dictionary-log:/var/log/goval-dictionary
+  gost:
+    image: vuls/gost:v0.4.4
+    container_name: gost
+    volumes:
+      - $PWD:/gost
+      - $PWD/gost-log:/var/log/gost
+  go-exploitdb:
+    image: vuls/go-exploitdb:v0.4.4
+    container_name: go-exploitdb
+    volumes:
+      - $PWD:/go-exploitdb
+      - $PWD/go-exploitdb-log:/var/log/go-exploitdb
+  go-msfdb:
+    image: vuls/go-msfdb:v0.2.2
+    container_name: go-msfdb
+    volumes:
+      - $PWD:/go-msfdb
+      - $PWD/go-msfdb-log:/var/log/go-msfdb
+  go-kev:
+    image: vuls/go-kev:v0.1.1
+    container_name: go-kev
+    volumes:
+      - $PWD:/go-kev
+      - $PWD/go-kev-log:/var/log/go-kev
+  go-cti:
+    image: vuls/go-cti:v0.0.3
+    container_name: go-cti
+    volumes:
+      - $PWD:/go-cti
+      - $PWD/go-cti-log:/var/log/go-cti
+  vuls:
+    image: vuls/vuls:v0.23.2
+    container_name: vuls
+    volumes:
+      - ~/.ssh:/root/.ssh:ro
+      - $PWD:/vuls
+      - $PWD/vuls-log:/var/log/vuls
+      - /etc/localtime:/etc/localtime:ro
+  vulsrepo:
+    image: ishidaco/vulsrepo:version-0.7.1
+    container_name: vulsrepo
+    ports:
+      - "5111:5111"
+    volumes:
+      - $PWD:/vuls

@@ -1,0 +1,35 @@
+[servers]
+
+[servers.localhost]
+host       = "localhost"
+port       = "local"
+scanMode   = ["fast", "offline"]
+
+# sqlite3 mode
+[cveDict]
+type = "sqlite3"
+SQLite3Path = "/vuls/cve.sqlite3"
+
+[ovalDict]
+type = "sqlite3"
+SQLite3Path = "/vuls/oval.sqlite3"
+
+[gost]
+type = "sqlite3"
+SQLite3Path = "/vuls/gost.sqlite3"
+
+[exploit]
+type = "sqlite3"
+SQLite3Path = "/vuls/go-exploitdb.sqlite3"
+
+[metasploit]
+type = "sqlite3"
+SQLite3Path = "/vuls/go-msfdb.sqlite3"
+
+[kevuln]
+type = "sqlite3"
+SQLite3Path = "/vuls/go-kev.sqlite3"
+
+[cti]
+type = "sqlite3"
+SQLite3Path = "/vuls/go-cti.sqlite3"
