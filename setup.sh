@@ -36,6 +36,12 @@ docker run --rm -it \
     -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
     vuls/goval-dictionary fetch alpine 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11 3.12 3.13 3.14 3.15 3.16 3.17
 
+# OVALの取得 (amazon)
+docker run --rm -it \
+    -v $PWD:/goval-dictionary \
+    -v $PWD/goval-dictionary-log:/var/log/goval-dictionary \
+    vuls/goval-dictionary fetch amazon
+
 # gost(RedHat/CentOS/AlmaLinux/Rocky Linux）
 docker run --rm -i \
     -v $PWD:/gost \
